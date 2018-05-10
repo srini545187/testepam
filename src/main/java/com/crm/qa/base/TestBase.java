@@ -24,7 +24,7 @@ public class TestBase {
 	public static Properties prop;
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
-	public ExtentReports extent = ExtentManager.getInstance();
+	public ExtentReports extent = ExtentManager.getInstance(); 
 	
 	public TestBase(){
 		try {

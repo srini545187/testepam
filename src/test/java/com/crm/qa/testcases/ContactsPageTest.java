@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -59,7 +60,7 @@ public class ContactsPageTest extends TestBase{
 	public void verifyContactsPageLabel(){
 		logger = extent.startTest("verifyContactsPageLabel Starting");
 		Assert.assertTrue(contactsPage.verifyContactsLabel(), "contacts label is missing on the page");
-		logger.log(LogStatus.PASS, "verifyContactsPageLabel is Passes");
+		logger.log(LogStatus.INFO, "verifyContactsPageLabel is Passed");
 	}
 	
 	/*@Test(priority=2)
@@ -92,11 +93,36 @@ public class ContactsPageTest extends TestBase{
 	
 
 	@AfterMethod
-	public void tearDown(){
+	public void tearDown(ITestResult result) throws IOException{	
+		if(result.getStatus()==ITestResult.FAILURE){
+			logger.log(LogStatus.FAIL, "TEST CASE FAILED IS "+ result.getTestClass().getName() + " . " +result.getName()); //to add name in extent report
+			logger.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+			
+			String screenshotPath = TestUtil.getScreenshot( result.getName());
+			logger.log(LogStatus.FAIL, logger.addScreenCapture(screenshotPath)); //to add screenshot in extent report
+			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
+		}
+		else if(result.getStatus()==ITestResult.SKIP){
+			logger.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getTestClass().getName() + " . " + result.getName());
+		}
+		else if(result.getStatus()==ITestResult.SUCCESS){
+			logger.log(LogStatus.PASS, "Test Case PASSED IS  " + result.getTestClass().getName() + " . " +result.getName());
+
+		}
+		
+		
+		extent.endTest(logger); //ending test and ends the current test and prepare to create html report
 		driver.quit();
+		extent.flush();
+		/*try {
+			TestUtil.takeScreenshotAtEndOfTest();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		driver.quit();
+		extent.endTest(logger);
+		extent.flush();*/
 	}
-	
-	
-	
+
 	
 }
