@@ -12,7 +12,7 @@ public class ExtentManager {
 		if(extent == null){
 			extent = new ExtentReports(System.getProperty("user.dir")+ "/test-output/ExtentAutomationReport.html",true);
 			extent.addSystemInfo("Host Name", "Srinivas Rao HP");
-		    extent.addSystemInfo("Environment", "QA");
+		    extent.addSystemInfo("Environment", "QA"); 
 		}
 		return extent;
 	}

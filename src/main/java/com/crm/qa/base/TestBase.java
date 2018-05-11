@@ -33,7 +33,7 @@ public class TestBase {
 					+ "/qa/config/config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

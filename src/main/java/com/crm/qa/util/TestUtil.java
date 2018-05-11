@@ -23,8 +23,7 @@ public class TestUtil extends TestBase{
 	public static long PAGE_LOAD_TIMEOUT = 120;
 	public static long IMPLICIT_WAIT = 20;
 	
-	public static String TESTDATA_SHEET_PATH = "/Users/naveenkhunteta/Documents/workspace"
-			+ "/FreeCRMTest/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx";
+	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+"/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx";
 	
 	static Workbook book;
 	static Sheet sheet;
@@ -75,7 +74,7 @@ public class TestUtil extends TestBase{
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		// after execution, you could see a folder "FailedTestsScreenshots"
 		// under src folder
-		String destination = System.getProperty("user.dir") + "/test-out/"+"/FailedTestsScreenshots/" + screenshotName + dateName
+		String destination = System.getProperty("user.dir") + "/test-output/"+"/FailedTestsScreenshots/" + screenshotName + dateName
 				+ ".png";
 		File finalDestination = new File(destination);
 		FileUtils.copyFile(source, finalDestination);

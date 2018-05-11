@@ -75,17 +75,17 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
 		//below if condition added on 8th May 18
 		 WebElement webElement = driver.findElement(by);
-		/* if (driver instanceof JavascriptExecutor) {
+		 if (driver instanceof JavascriptExecutor) {
             ((JavascriptExecutor)driver).executeScript("arguments[0].style.border='4px solid orange'", webElement);
         }
-		 System.out.println("Trying to find Element By : " + by.toString());*/
+		 System.out.println("Trying to find Element By : " + by.toString());
 		
-		 for (int i = 0; i <2; i++) {
+		 /*for (int i = 0; i <2; i++) {
 	            JavascriptExecutor js = (JavascriptExecutor) driver;
 	            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", webElement, "color: orange; border: 3px solid orange;");
 	            js.executeScript("arguments[0].setAttribute('style', arguments[1]);", webElement, "");
 	            }
-	      System.out.println("Trying to find Element By : " + by.toString());
+	      System.out.println("Trying to find Element By : " + by.toString());*/
 		
 	
 	}
