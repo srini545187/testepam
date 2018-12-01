@@ -30,13 +30,13 @@ public class LoginPageTest extends TestBase{
 		loginPage = new LoginPage();	
 	}
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void loginPageTitleTest(){
 		logger = extent.startTest("loginPageTitleTest Starting");		
 		String title = loginPage.validateLoginPageTitle();
 		Assert.assertEquals(title, "#1 Free CRM for Any Business: Online Customer Relationship Software abcbb");
 		logger.log(LogStatus.INFO, "loginPageTitleTest is PASSED");
-	}
+	}*/
 	/*
 	@Test(priority=2)
 	public void crmLogoImageTest(){

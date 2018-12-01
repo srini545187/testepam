@@ -15,6 +15,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.crm.qa.util.TestUtil;
 import com.crm.qa.util.WebEventListener;
+import com.crm.qa.util.WebEventListener2;
 import com.qa.ExtentReportListener.ExtentManager;
 import com.relevantcodes.extentreports.ExtentReports;
 
@@ -23,7 +24,7 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Properties prop;
 	public  static EventFiringWebDriver e_driver;
-	public static WebEventListener eventListener;
+	public static WebEventListener2 eventListener;
 	public ExtentReports extent = ExtentManager.getInstance(); 
 	
 	public TestBase(){
@@ -55,7 +56,7 @@ public class TestBase {
 		
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
-		eventListener = new WebEventListener();
+		eventListener = new WebEventListener2();
 		e_driver.register(eventListener);
 		driver = e_driver;
 		
